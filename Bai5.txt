@@ -1,0 +1,207 @@
+BÀI 5: PHÂN TÍCH TỐC ĐỘ TRUYỀN DỮ LIỆU VÀ QUẢN LÝ ĐƯỜNG DẪN TỆP AN TOÀN 
+
+Phần 1. Phân tích và so sánh 
+
+1.1. So sánh đường dẫn tuyệt đối và tương đối 
+
+Tiêu chí 
+
+Đường dẫn tuyệt đối 
+
+Đường dẫn tương đối 
+
+Khái niệm 
+
+Chỉ rõ toàn bộ vị trí của file 
+
+Xác định vị trí file dựa trên thư mục hiện tại 
+
+Ví dụ 
+
+C:\Users\Ban_Than\Desktop\Project\data\db.csv 
+
+./data/db.csv 
+
+Phụ thuộc máy tính 
+
+Cao 
+
+Thấp 
+
+Đổi máy 
+
+Dễ bị lỗi 
+
+Ít bị lỗi hơn 
+
+Tính linh hoạt 
+
+Thấp 
+
+Cao 
+
+Sử dụng cho dự án 
+
+Không nên nếu cần chia sẻ 
+
+Nên sử dụng 
+
+Đường dẫn: 
+
+C:\Users\Ban_Than\Desktop\Project\data\db.csv 
+
+là đường dẫn tuyệt đối, vì nó phụ thuộc vào tên người dùng và vị trí cụ thể trên máy bạn thân. 
+
+Nếu dự án được chuyển sang máy khác, đường dẫn này có thể không tồn tại. 
+
+ 
+
+1.2. Tính thời gian tải file 2 GB 
+
+Thông tin: 
+
+Dung lượng = 2 GB 
+
+Tốc độ mạng = 80 Mbps 
+
+Cần chú ý: 
+
+b = bit 
+
+B = Byte 
+
+ 
+
+1 Byte = 8 bit 
+
+Đổi tốc độ: 
+
+80 Mbps ÷ 8 = 10 MB/s 
+
+Nếu sử dụng quy đổi theo hệ số 1024: 
+
+2 GB = 2 × 1024 MB 
+
+     = 2048 MB 
+
+Thời gian tải: 
+
+2048 MB ÷ 10 MB/s = 204,8 giây 
+
+Kết quả: 
+
+Thời gian tải lý thuyết = 204,8 giây. 
+
+Tức khoảng: 
+
+204,8 giây ≈ 3 phút 25 giây 
+
+Đây là thời gian lý thuyết. Thực tế có thể lâu hơn do Wi-Fi, máy chủ Google Drive, thiết bị mạng và các yếu tố khác. 
+
+ 
+
+Phần 2. Hành động 
+
+2.1. Viết lại đường dẫn bằng Relative Path 
+
+Giả sử cấu trúc dự án: 
+
+Project/ 
+
+├── main.py 
+
+└── data/ 
+
+    └── db.csv 
+
+Nếu main.py nằm trong thư mục Project, đường dẫn tương đối đến db.csv là: 
+
+./data/db.csv 
+
+Trong đó: 
+
+. = thư mục hiện tại. 
+
+./data/ = thư mục data nằm trong thư mục hiện tại. 
+
+Nếu file Python nằm trong thư mục con: 
+
+Project/ 
+
+├── data/ 
+
+│   └── db.csv 
+
+└── src/ 
+
+    └── main.py 
+
+thì từ src phải đi lên một cấp: 
+
+../data/db.csv 
+
+Trong đó: 
+
+.. = thư mục cha. 
+
+../data/ = đi lên một cấp rồi vào thư mục data. 
+
+ 
+
+3. Nhận diện file mã độc bị ẩn đuôi 
+
+File thực tế là: 
+
+tai-lieu-on-tap.pdf.exe 
+
+nhưng Windows đang ẩn phần mở rộng nên người dùng chỉ nhìn thấy: 
+
+tai-lieu-on-tap.pdf 
+
+Điều này có thể khiến người dùng nhầm file .exe là file PDF. 
+
+Cách bật hiển thị đuôi file trên Windows 
+
+Mở File Explorer → chọn: 
+
+View 
+
+→ Show 
+
+→ File name extensions 
+
+Sau khi bật, file sẽ hiển thị đầy đủ: 
+
+tai-lieu-on-tap.pdf.exe 
+
+Từ đó có thể nhận ra đây không phải file PDF thực sự mà là file thực thi .exe. 
+
+Lưu ý an toàn 
+
+Không nên mở hoặc chạy file đáng ngờ chỉ để kiểm tra. Nếu file được gửi từ nguồn không đáng tin cậy, nên xóa hoặc quét bằng phần mềm bảo mật trước. 
+
+ 
+
+Kết luận 
+
+80 Mbps = 10 MB/s. 
+
+File 2 GB = 2048 MB theo hệ số 1024. 
+
+Thời gian tải lý thuyết: 
+
+2048 ÷ 10 = 204,8 giây ≈ 3 phút 25 giây 
+
+Nên sử dụng Relative Path như: 
+
+./data/db.csv 
+
+hoặc: 
+
+../data/db.csv 
+
+Bật File name extensions trong File Explorer để phát hiện file giả dạng PDF như: 
+
+tai-lieu-on-tap.pdf.exe 
+
+ 
